@@ -24,6 +24,6 @@ public class Main {
         }
         System.out.println(int_list);
         int_list.remove(4);
+        list.add("yarik");
     }
-
 }
