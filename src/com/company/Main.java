@@ -35,9 +35,16 @@ public class Main {
             else tail.next = item;
             tail = item;
         }
-
-        public void find(int v){
-
+        public Node find(int v){
+            Node item = head;
+            while(item != null){
+                //item = item.next;
+                if(item.value == v){
+                    return item;
+                }
+                item = item.next;
+            }
+            return null;
         }
     }
 }
