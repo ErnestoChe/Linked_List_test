@@ -6,45 +6,44 @@ import java.util.Scanner;
 
 public class Main {
 
-    public void main(String[] args) {
-        LinkedList list = new LinkedList();
-        Node n1 = new Node(23);
-        Node n2 = new Node(43);
-        list.add_in_tail(n1);
-        list.add_in_tail(n2);
-        list.add_in_tail(new Node(31));
-        Node my_node = list.find(10);
-    }
-    class Node{
-        int value;
+    public static class Node
+    {
+        int data;
         Node next;
-        Node(int d){
-            value = d;
-            next = null;
+        Node(int d)  {
+            data = d;  next = null;
         }
-
     }
-    class LinkedList{
-        Node head = null;
-        Node tail = null;
-
-        public void add_in_tail(Node item){
-            if(head==null){
-                head = item;
-            }
-            else tail.next = item;
-            tail = item;
+    public static class LinkedList
+    {
+        Node head;
+        public void push(int new_data)
+        {
+            Node new_node = new Node(new_data);
+            new_node.next = head;
+            head = new_node;
         }
-        public Node find(int v){
-            Node item = head;
-            while(item != null){
-                //item = item.next;
-                if(item.value == v){
-                    return item;
-                }
-                item = item.next;
+        public int getCount()
+        {
+            Node temp = head;
+            int count = 0;
+            while (temp != null)
+            {
+                count++;
+                temp = temp.next;
             }
-            return null;
+            return count;
+        }
+        public static void main(String[] args) {
+            LinkedList llist = new LinkedList();
+            llist.push(1);
+            llist.push(3);
+            llist.push(1);
+            llist.push(2);
+            llist.push(1);
+
+            System.out.println("Count of nodes is " +
+                    llist.getCount());
         }
     }
 }
