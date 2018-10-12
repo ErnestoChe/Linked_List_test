@@ -13,7 +13,7 @@ public class Main {
         list.add_in_tail(n1);
         list.add_in_tail(n2);
         list.add_in_tail(new Node(31));
-        System.out.println(list);
+        Node my_node = list.find(10);
     }
     class Node{
         int value;
