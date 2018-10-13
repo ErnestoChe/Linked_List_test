@@ -10,14 +10,15 @@ public class Main {
     {
         int data;
         Node next;
+        Node prev;
         Node(int d)  {
-            data = d;  next = null;
+            data = d;  next = null; prev = null;
         }
     }
     public static class LinkedList
     {
         Node head;
-        public void push(int new_data)
+        public void add(int new_data)
         {
             Node new_node = new Node(new_data);
             new_node.next = head;
@@ -34,16 +35,32 @@ public class Main {
             }
             return count;
         }
+        public void value(){
+            Node temp = head;
+            while(temp!= null){
+                System.out.print(temp.data+" ");
+                temp = temp.next;
+            }
+        }
+        public void remove_by_value(int v){
+            Node temp = head;
+            while(temp != null){
+                if(temp.data == v){
+                    Node t = temp;
+                    temp.prev = t.next;
+                    temp.next = t.prev;
+                }
+            }
+        }
         public static void main(String[] args) {
             LinkedList llist = new LinkedList();
-            llist.push(1);
-            llist.push(3);
-            llist.push(1);
-            llist.push(2);
-            llist.push(1);
-
-            System.out.println("Count of nodes is " +
-                    llist.getCount());
+            llist.add(1);
+            llist.add(3);
+            llist.add(1);
+            llist.add(2);
+            llist.add(1);
+            llist.value();
+            llist.remove_by_value(3);
         }
     }
 }
