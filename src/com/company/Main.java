@@ -18,11 +18,18 @@ public class Main {
     public static class LinkedList
     {
         Node head;
+        Node tail;
+
         public void add(int new_data)
         {
             Node new_node = new Node(new_data);
-            new_node.next = head;
-            head = new_node;
+            //new_node.next = head;
+            //head = new_node;
+            new_node.prev = tail;
+            tail = new_node;
+
+            //tail.next = new_node;
+            //tail = new_node;
         }
         public int getCount()
         {
