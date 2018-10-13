@@ -44,11 +44,12 @@ public class Main {
         }
         public void remove_by_value(int v){
             Node temp = head;
-            while(temp != null){
-                if(temp.data == v){
-                    Node t = temp;
-                    temp.prev = t.next;
-                    temp.next = t.prev;
+            while(temp.next != null){
+                if(temp.next.data == v){
+                    Node t = temp.next;
+                    temp.next = t.next;
+                }else{
+                    temp = temp.next;
                 }
             }
         }
@@ -61,6 +62,8 @@ public class Main {
             llist.add(1);
             llist.value();
             llist.remove_by_value(3);
+            System.out.println();
+            llist.value();
         }
     }
 }
