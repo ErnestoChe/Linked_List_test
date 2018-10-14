@@ -52,6 +52,9 @@ public class Main {
 
         public void log(){
             Node temp = head;
+            if(head == null){
+                System.out.println("empty list");
+            }
             while(temp!= null){
                 System.out.print(temp.data+" ");
                 temp = temp.next;
@@ -113,6 +116,24 @@ public class Main {
             }
             return s;
         }
+
+        public void clean(){
+            head = null;
+        }
+
+        public void remove_first_by_key(int a){
+            Node tmp = head;
+            while(tmp.next != null){
+                if(tmp.next.data == a){
+                    Node t = tmp.next;
+                    tmp.next = t.next;
+                }
+                else{
+                    tmp = tmp.next;
+                }
+                break;
+            }
+        }
         public static void main(String[] args) {
             LinkedList llist = new LinkedList();
             llist.add_last(1);
@@ -120,24 +141,25 @@ public class Main {
             llist.add_last(1);
             llist.add_last(2);
             llist.add_last(2);
-            llist.log();
+            //llist.log();
             llist.add_last(4);
-            llist.log();
+            //llist.log();
+
             LinkedList klist = new LinkedList();
             for(int i = 0; i<6; i++){
                 klist.add_last(i);
             }
-            klist.log();
+            //klist.log();
             LinkedList s = new LinkedList();
+
             s = s.sum(llist, klist);
+            s.add_last(3);
+            s.add_last(5);
             s.log();
-
-            llist.remove_by_value(1);
-            llist.log();
-
-            LinkedList found = new LinkedList();
-            found = llist.found_list(2);
-            found.log();
+            s.remove_by_value(3);
+            s.log();
+            s.remove_by_value(5);
+            s.log();
         }
     }
 }
