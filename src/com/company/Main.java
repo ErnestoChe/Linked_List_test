@@ -10,9 +10,8 @@ public class Main {
     {
         int data;
         Node next;
-        Node prev;
         Node(int d)  {
-            data = d;  next = null; prev = null;
+            data = d;  next = null;
         }
     }
     public static class LinkedList
@@ -20,17 +19,26 @@ public class Main {
         Node head;
         Node tail;
 
-        public void add(int new_data)
+        public void add_first(int new_data)         //функция добавляет в конец списка
         {
             Node new_node = new Node(new_data);
-            //new_node.next = head;
-            //head = new_node;
-            new_node.prev = tail;
-            tail = new_node;
-
-            //tail.next = new_node;
-            //tail = new_node;
+            new_node.next = head;
+            head = new_node;
         }
+
+        public void add_last(int new_data){         //функция добавляет в конец списка
+            if(head == null){
+                add_first(new_data);
+            }
+            else{
+                Node tmp = head;
+                while(tmp.next!= null){
+                    tmp = tmp.next;
+                }
+                tmp.next = new Node(new_data);
+            }
+        }
+
         public int getCount()
         {
             Node temp = head;
@@ -62,14 +70,16 @@ public class Main {
         }
         public static void main(String[] args) {
             LinkedList llist = new LinkedList();
-            llist.add(1);
-            llist.add(3);
-            llist.add(1);
-            llist.add(2);
-            llist.add(1);
+            llist.add_first(1);
+            llist.add_first(3);
+            llist.add_first(1);
+            llist.add_first(2);
+            llist.add_first(1);
             llist.value();
-            llist.remove_by_value(3);
+            llist.add_last(4);
             System.out.println();
+            //llist.remove_by_value(3);
+            //System.out.println();
             llist.value();
         }
     }
