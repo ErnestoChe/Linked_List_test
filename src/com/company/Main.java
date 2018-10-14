@@ -19,13 +19,11 @@ public class Main {
         Node head;
         Node tail;
 
-        public void add_first(int new_data)         //функция добавляет в конец списка
-        {
+        public void add_first(int new_data) {
             Node new_node = new Node(new_data, head);
             new_node.next = head;
             head = new_node;
-        }
-
+        }                  //tested
         public void add_last(int new_data){         //функция добавляет в конец списка
             if(head == null){
                 add_first(new_data);
@@ -37,8 +35,7 @@ public class Main {
                 }
                 tmp.next = new Node(new_data, null);
             }
-        }
-
+        }                    //tested
         public int getCount(){
             Node temp = head;
             int count = 0;
@@ -48,8 +45,7 @@ public class Main {
                 temp = temp.next;
             }
             return count;
-        }
-
+        }                                 //tested
         public void log(){
             Node temp = head;
             if(head == null){
@@ -60,8 +56,7 @@ public class Main {
                 temp = temp.next;
             }
             System.out.println();
-        }
-
+        }                                     //tested
         public void remove_by_value(int v){
             Node temp = head;
             while(temp.next != null){
@@ -72,8 +67,7 @@ public class Main {
                     temp = temp.next;
                 }
             }
-        }
-
+        }                    //tested
         public void insertAfter(int k, int ins){
             Node tmp = head;
             while((tmp != null) && (tmp.data != k)){
@@ -82,9 +76,8 @@ public class Main {
             if(tmp != null){
                 tmp.next = new Node(ins, tmp.next);
             }
-        }
-
-        public int get_by_id(int q){
+        }               //tested
+        public int get(int q){
             Node tmp = head;
             int count = 0;
             while(count<q){
@@ -92,19 +85,20 @@ public class Main {
                 count++;
             }
             return tmp.data;
-        }
-
+        }                                 //tested
         public LinkedList sum(LinkedList a, LinkedList b){          //возвращает сумму двух
             LinkedList s = new LinkedList();
-            if(a.getCount()==b.getCount()){
-                    for(int i =0; i<a.getCount(); i++){
-                        s.add_last(a.get_by_id(i)+b.get_by_id(i));
-                    }
-                }
-                else {System.out.println("Длины списков не равны");}
-                return s;
-        }
 
+            if(a.getCount()==b.getCount())
+            {
+                    for(int i = 0; i<a.getCount(); i++)
+                    {
+                        s.add_last((a.get(i)+b.get(i)));
+                    }
+            }
+            else {System.out.println("Длины списков не равны"); }
+            return s;
+        }     //tested
         public LinkedList found_list(int f){            //возвращает список из найденных узлов
             LinkedList s = new LinkedList();
             Node tmp = head;
@@ -115,12 +109,10 @@ public class Main {
                 tmp = tmp.next;
             }
             return s;
-        }
-
+        }                   //tested
         public void clean(){
             head = null;
-        }
-
+        }                       //tested
         public void remove_first_by_key(int a){
             Node tmp = head;
             while(tmp.next != null){
@@ -134,35 +126,18 @@ public class Main {
                     tmp = tmp.next;
                 }
             }
-        }
+        }                //
+
         public static void main(String[] args) {
             LinkedList llist = new LinkedList();
-            llist.add_last(1);
-            llist.add_last(3);
-            llist.add_last(1);
-            llist.add_last(2);
-            llist.add_last(2);
-            //llist.log();
-            llist.add_last(4);
-            //llist.log();
 
-            LinkedList klist = new LinkedList();
-            for(int i = 0; i<6; i++){
-                klist.add_last(i);
-            }
-            //klist.log();
-            LinkedList s = new LinkedList();
-
-            s = s.sum(llist, klist);
-            s.add_last(3);
-            s.add_last(5);
-            s.log();
-            s.remove_by_value(3);
-            s.log();
-            s.remove_by_value(5);
-            s.log();
-            s.remove_first_by_key(9);
-            s.log();
+            Test.test_remove();
+            Test.test_Sum();
+            Test.test_clean();
+            Test.test_Size();
+            Test.test_Found();
+            Test.test_Insert();
+            Test.test_remove_one();
         }
     }
 }
