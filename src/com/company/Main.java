@@ -70,11 +70,11 @@ public class Main {
         }
         public static void main(String[] args) {
             LinkedList llist = new LinkedList();
-            llist.add_first(1);
-            llist.add_first(3);
-            llist.add_first(1);
-            llist.add_first(2);
-            llist.add_first(1);
+            llist.add_last(1);
+            llist.add_last(3);
+            llist.add_last(1);
+            llist.add_last(2);
+            llist.add_last(1);
             llist.value();
             llist.add_last(4);
             System.out.println();
