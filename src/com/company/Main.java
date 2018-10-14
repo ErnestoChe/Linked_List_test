@@ -127,11 +127,12 @@ public class Main {
                 if(tmp.next.data == a){
                     Node t = tmp.next;
                     tmp.next = t.next;
+                    break;
                 }
+
                 else{
                     tmp = tmp.next;
                 }
-                break;
             }
         }
         public static void main(String[] args) {
@@ -159,6 +160,8 @@ public class Main {
             s.remove_by_value(3);
             s.log();
             s.remove_by_value(5);
+            s.log();
+            s.remove_first_by_key(9);
             s.log();
         }
     }
