@@ -81,7 +81,7 @@ public class Main {
             }
         }
 
-        public int get(int q){
+        public int get_by_id(int q){
             Node tmp = head;
             int count = 0;
             while(count<q){
@@ -95,20 +95,31 @@ public class Main {
             LinkedList s = new LinkedList();
             if(a.getCount()==b.getCount()){
                     for(int i =0; i<a.getCount(); i++){
-                        s.add_last(a.get(i)+b.get(i));
+                        s.add_last(a.get_by_id(i)+b.get_by_id(i));
                     }
                 }
                 else {System.out.println("Длины списков не равны");}
                 return s;
         }
 
+        public LinkedList found_list(int f){            //возвращает список из найденных узлов
+            LinkedList s = new LinkedList();
+            Node tmp = head;
+            while(tmp!=null){
+                if(tmp.data == f){
+                    s.add_last(f);
+                }
+                tmp = tmp.next;
+            }
+            return s;
+        }
         public static void main(String[] args) {
             LinkedList llist = new LinkedList();
             llist.add_last(1);
             llist.add_last(3);
             llist.add_last(1);
             llist.add_last(2);
-            llist.add_last(1);
+            llist.add_last(2);
             llist.log();
             llist.add_last(4);
             llist.log();
@@ -123,6 +134,10 @@ public class Main {
 
             llist.remove_by_value(1);
             llist.log();
+
+            LinkedList found = new LinkedList();
+            found = llist.found_list(2);
+            found.log();
         }
     }
 }
