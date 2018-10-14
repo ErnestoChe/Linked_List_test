@@ -81,6 +81,27 @@ public class Main {
             }
         }
 
+        public int get(int q){
+            Node tmp = head;
+            int count = 0;
+            while(count<q){
+                tmp = tmp.next;
+                count++;
+            }
+            return tmp.data;
+        }
+
+        public LinkedList sum(LinkedList a, LinkedList b){          //возвращает сумму двух
+            LinkedList s = new LinkedList();
+            if(a.getCount()==b.getCount()){
+                    for(int i =0; i<a.getCount(); i++){
+                        s.add_last(a.get(i)+b.get(i));
+                    }
+                }
+                else {System.out.println("Длины списков не равны");}
+                return s;
+        }
+
         public static void main(String[] args) {
             LinkedList llist = new LinkedList();
             llist.add_last(1);
@@ -91,7 +112,17 @@ public class Main {
             llist.log();
             llist.add_last(4);
             llist.log();
+            LinkedList klist = new LinkedList();
+            for(int i = 0; i<6; i++){
+                klist.add_last(i);
+            }
+            klist.log();
+            LinkedList s = new LinkedList();
+            s = s.sum(llist, klist);
+            s.log();
 
+            llist.remove_by_value(1);
+            llist.log();
         }
     }
 }
