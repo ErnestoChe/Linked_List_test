@@ -10,7 +10,7 @@ public class Main {
     {
         int data;
         Node next;
-        Node(int d)  {
+        Node(int d, Node next)  {
             data = d;  next = null;
         }
     }
@@ -21,7 +21,7 @@ public class Main {
 
         public void add_first(int new_data)         //функция добавляет в конец списка
         {
-            Node new_node = new Node(new_data);
+            Node new_node = new Node(new_data, head);
             new_node.next = head;
             head = new_node;
         }
@@ -35,12 +35,11 @@ public class Main {
                 while(tmp.next!= null){
                     tmp = tmp.next;
                 }
-                tmp.next = new Node(new_data);
+                tmp.next = new Node(new_data, null);
             }
         }
 
-        public int getCount()
-        {
+        public int getCount(){
             Node temp = head;
             int count = 0;
             while (temp != null)
@@ -50,13 +49,16 @@ public class Main {
             }
             return count;
         }
-        public void value(){
+
+        public void log(){
             Node temp = head;
             while(temp!= null){
                 System.out.print(temp.data+" ");
                 temp = temp.next;
             }
+            System.out.println();
         }
+
         public void remove_by_value(int v){
             Node temp = head;
             while(temp.next != null){
@@ -68,6 +70,17 @@ public class Main {
                 }
             }
         }
+
+        public void insertAfter(int k, int ins){
+            Node tmp = head;
+            while((tmp != null) && (tmp.data != k)){
+                tmp = tmp.next;
+            }
+            if(tmp != null){
+                tmp.next = new Node(ins, tmp.next);
+            }
+        }
+
         public static void main(String[] args) {
             LinkedList llist = new LinkedList();
             llist.add_last(1);
@@ -75,12 +88,10 @@ public class Main {
             llist.add_last(1);
             llist.add_last(2);
             llist.add_last(1);
-            llist.value();
+            llist.log();
             llist.add_last(4);
-            System.out.println();
-            //llist.remove_by_value(3);
-            //System.out.println();
-            llist.value();
+            llist.log();
+
         }
     }
 }
