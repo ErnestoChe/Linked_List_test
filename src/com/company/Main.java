@@ -138,6 +138,7 @@ public class Main {
             Test.test_Found();
             Test.test_Insert();
             Test.test_remove_one();
+            Test.test_add();
         }
     }
 }

@@ -22,6 +22,17 @@ public class Test {
         }
         System.out.println("remove test passed");
     }
+    public static void test_add(){
+        Main.LinkedList a = new Main.LinkedList();
+        int n = 5;
+        for(int i = 0; i<n; i++){
+            a.add_last(i);
+        }
+        int size = a.getCount();
+        if((a.get(0) == 0) && (a.get(size-1) == 4)){
+            System.out.println("add last test passed");
+        }else System.out.println("add last test failed");
+    }
     public static void test_Sum(){
         Main.LinkedList a = new Main.LinkedList();
         Main.LinkedList b = new Main.LinkedList();
