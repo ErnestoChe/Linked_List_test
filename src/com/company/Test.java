@@ -28,8 +28,7 @@ public class Test {
         for(int i = 0; i<n; i++){
             a.add_last(i);
         }
-        int size = a.getCount();
-        if((a.get(0) == 0) && (a.get(size-1) == 4)){
+        if((a.getHead() == 0) && (a.getTail() == 4)){
             System.out.println("add last test passed");
         }else System.out.println("add last test failed");
     }

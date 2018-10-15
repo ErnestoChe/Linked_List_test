@@ -24,6 +24,7 @@ public class Main {
             new_node.next = head;
             head = new_node;
         }                  //tested
+
         public void add_last(int new_data){         //функция добавляет в конец списка
             if(head == null){
                 add_first(new_data);
@@ -77,6 +78,17 @@ public class Main {
                 tmp.next = new Node(ins, tmp.next);
             }
         }               //tested
+        public int getHead(){
+            Node tmp = head;
+            return tmp.data;
+        }
+        public int getTail(){
+            Node tmp = head;
+            while(tmp.next!=null){
+                tmp = tmp.next;
+            }
+            return tmp.data;
+        }
         public int get(int q){
             Node tmp = head;
             int count = 0;
@@ -130,7 +142,9 @@ public class Main {
 
         public static void main(String[] args) {
             LinkedList llist = new LinkedList();
-
+            llist.add_last(2);
+            llist.add_last(3);
+            llist.add_last(4);
             Test.test_remove();
             Test.test_Sum();
             Test.test_clean();
