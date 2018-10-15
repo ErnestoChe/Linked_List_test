@@ -28,7 +28,7 @@ public class Test {
         for(int i = 0; i<n; i++){
             a.add_last(i);
         }
-        if((a.getHead() == 0) && (a.getTail() == 4)){
+        if((a.head.data == 0) && (a.tail.data == 4)){
             System.out.println("add last test passed");
         }else System.out.println("add last test failed");
     }
@@ -75,11 +75,11 @@ public class Test {
         for(int i = 0; i<5; i++){
             f.add_last(5-i);
         }
-        Main.LinkedList d = new Main.LinkedList();
+        Main.LinkedList d;
         d = f.found_list(2);
         if((d.getCount() == 2) && (d.get(0) == 2) && (d.get(1) == 2)){
             System.out.println("found test passed");
-        }else System.out.println("founf test failed");
+        }else System.out.println("found test failed");
     }
     public static void test_Insert(){
         Main.LinkedList f = new Main.LinkedList();

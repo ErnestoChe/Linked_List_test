@@ -35,6 +35,7 @@ public class Main {
                     tmp = tmp.next;
                 }
                 tmp.next = new Node(new_data, null);
+                tail = tmp.next;
             }
         }                    //tested
         public int getCount(){
@@ -78,17 +79,6 @@ public class Main {
                 tmp.next = new Node(ins, tmp.next);
             }
         }               //tested
-        public int getHead(){
-            Node tmp = head;
-            return tmp.data;
-        }
-        public int getTail(){
-            Node tmp = head;
-            while(tmp.next!=null){
-                tmp = tmp.next;
-            }
-            return tmp.data;
-        }
         public int get(int q){
             Node tmp = head;
             int count = 0;
@@ -142,9 +132,9 @@ public class Main {
 
         public static void main(String[] args) {
             LinkedList llist = new LinkedList();
-            llist.add_last(2);
-            llist.add_last(3);
-            llist.add_last(4);
+            for(int i = 0; i<=10; i++){
+                llist.add_last(i);
+            }
             Test.test_remove();
             Test.test_Sum();
             Test.test_clean();
