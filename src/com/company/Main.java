@@ -126,7 +126,7 @@ public class Main {
                     tmp = tmp.next;
                 }
             }
-        }                //
+        }                //tested
 
         public static void main(String[] args) {
             LinkedList llist = new LinkedList();

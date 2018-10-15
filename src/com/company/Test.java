@@ -6,6 +6,13 @@ public class Test {
         for(int i = 0; i<5; i++){
             s.add_last(i+1);
         }
+        for(int i = 0; i<5; i++){
+            if(s.get(i) != i+1){
+                System.out.println("remove test inizialization failed");
+                break;
+            }
+        }
+        System.out.println("remove test inizialization passed");
         s.remove_by_value(3);
         for(int i = 0; i < s.getCount(); i++){
             if(s.get(i) == 3){
