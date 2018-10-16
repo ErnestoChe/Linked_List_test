@@ -2,6 +2,7 @@ package com.company;
 
 public class Test {
     public static void testRemove(){
+        System.out.println();
         Main.LinkedList s = new Main.LinkedList();
         for(int i = 0; i<5; i++){
             s.addLast(i+1);
@@ -12,15 +13,16 @@ public class Test {
                 break;
             }
         }
+        int h1 = s.head.data;
+        int t1 = s.tail.data;
         System.out.println("remove test inizialization passed");
         s.removeByValue(3);
-        for(int i = 0; i < s.getCount(); i++){
-            if(s.get(i) == 3){
-                System.out.println("test failed");
-                break;
-            }
-        }
-        System.out.println("remove test passed");
+        int h2 = s.head.data;
+        int t2 = s.tail.data;
+        if((h1 == h2) && (t1 == t2)){
+            System.out.println("remove test passed");
+        }else System.out.println("remove test passed");
+        System.out.println();
     }
     public static void testAdd(){
         Main.LinkedList a = new Main.LinkedList();
@@ -31,6 +33,7 @@ public class Test {
         if((a.head.data == 0) && (a.tail.data == 4)){
             System.out.println("add last test passed");
         }else System.out.println("add last test failed");
+        System.out.println();
     }
     public static void testSum(){
         Main.LinkedList a = new Main.LinkedList();
@@ -48,6 +51,7 @@ public class Test {
             }
         }
         System.out.println("sum test passed");
+        System.out.println();
     }
     public static void testClean(){
         Main.LinkedList c = new Main.LinkedList();
@@ -57,6 +61,7 @@ public class Test {
             System.out.println("clean up test passed");
         }
         else System.out.println("clean up failed");
+        System.out.println();
     }
     public static void testSize(){
         Main.LinkedList s = new Main.LinkedList();
@@ -66,6 +71,7 @@ public class Test {
         if(s.getCount() == 5){
             System.out.println("size test passed");
         }else System.out.println("size test failed");
+        System.out.println();
     }
     public static void testFound(){
         Main.LinkedList f = new Main.LinkedList();
@@ -80,6 +86,7 @@ public class Test {
         if((d.getCount() == 2) && (d.get(0) == 2) && (d.get(1) == 2)){
             System.out.println("found test passed");
         }else System.out.println("found test failed");
+        System.out.println();
     }
     public static void testInsert(){
         Main.LinkedList f = new Main.LinkedList();
@@ -87,21 +94,29 @@ public class Test {
         for(int i = 0; i < 5; i++){
             f.addLast(i);
         }
+        int h1 = f.head.data;
+        int t1 = f.tail.data;
         f.insertAfter(n, 3);
-        if(f.get(n+1)==3){
+        int h2 = f.head.data;
+        int t2 = f.tail.data;
+        if((h1 == h2) && (t1 == t2)){
             System.out.println("insert test passed");
         }else System.out.println("insert test failed");
+        System.out.println();
     }
     public static void testRemoveOne(){
         Main.LinkedList f = new Main.LinkedList();
         for(int i = 0; i<5; i++){
             f.addLast(i+1);
         }
-        int before = f.get(3);
+        int h1 = f.head.data;
+        int t1 = f.tail.data;
         f.removeFirstByKey(3);
-        int after = f.get(3);
-        if(before != after){
+        int h2 = f.head.data;
+        int t2 = f.tail.data;
+        if((h1 == h2)&& (t1 == t2)){
             System.out.println("remove ome test passed");
         }else System.out.println("remove one test failed");
+        System.out.println();
     }
 }
