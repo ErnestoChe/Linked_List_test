@@ -64,6 +64,9 @@ public class Main {
                 if(temp.next.data == v){
                     Node t = temp.next;
                     temp.next = t.next;
+                    if(t.next == null){
+                        tail = temp;
+                    }
                 }else{
                     temp = temp.next;
                 }
@@ -122,6 +125,9 @@ public class Main {
                     }
                     Node t = tmp.next;
                     tmp.next = t.next;
+                    if(t.next == null){
+                        tail = tmp;
+                    }
                     break;
                 }
                 else{
@@ -135,6 +141,12 @@ public class Main {
             for(int i = 0; i<=10; i++){
                 llist.addLast(i);
             }
+            llist.removeByValue(10);
+            llist.log();
+            System.out.println(llist.tail.data);
+            llist.removeFirstByKey(9);
+            llist.log();
+            System.out.println(llist.tail.data);
             Test.testRemove();
             Test.testSum();
             Test.testClean();
