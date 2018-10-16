@@ -58,6 +58,7 @@ public class Main {
             System.out.println();
         }                                     //tested
         public void removeByValue(int v){
+            if(head.data == v){ head = head.next; }
             Node temp = head;
             while(temp.next != null){
                 if(temp.next.data == v){
@@ -115,11 +116,14 @@ public class Main {
             Node tmp = head;
             while(tmp.next != null){
                 if(tmp.next.data == a){
+                    if(head.data == a){
+                        head = head.next;
+                        break;
+                    }
                     Node t = tmp.next;
                     tmp.next = t.next;
                     break;
                 }
-
                 else{
                     tmp = tmp.next;
                 }
