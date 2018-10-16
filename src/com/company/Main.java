@@ -10,7 +10,7 @@ public class Main {
     {
         int data;
         Node next;
-        Node(int d, Node next)  {
+        public Node(int d, Node next)  {
             data = d;  next = null;
         }
     }
@@ -18,21 +18,19 @@ public class Main {
     {
         Node head;
         Node tail;
-        int size;
-
-        public void add_first(int new_data) {
+        LinkedList(){
+            head = null;
+            tail = null;
+        }
+        public void addFirst(int new_data) {
             head = new Node(new_data, head);
-            //size++;
+            tail = head;
         }                  //tested
-        public void add_last(int new_data){         //функция добавляет в конец списка
+        public void addLast(int new_data){         //функция добавляет в конец списка
             if(head == null){
-                add_first(new_data);
+                addFirst(new_data);
             }
             else{
-                /*Node tmp = head;
-                while(tmp.next!= null){
-                    tmp = tmp.next;
-                }*/
                 Node tmp = new Node(new_data, null);
                 tail.next = tmp;
                 tail = tail.next;
@@ -59,7 +57,7 @@ public class Main {
             }
             System.out.println();
         }                                     //tested
-        public void remove_by_value(int v){
+        public void removeByValue(int v){
             Node temp = head;
             while(temp.next != null){
                 if(temp.next.data == v){
@@ -95,27 +93,25 @@ public class Main {
             {
                     for(int i = 0; i<a.getCount(); i++)
                     {
-                        s.add_last((a.get(i)+b.get(i)));
+                        s.addLast((a.get(i)+b.get(i)));
                     }
             }
             else {System.out.println("Длины списков не равны"); }
             return s;
         }     //tested
-        public LinkedList found_list(int f){            //возвращает список из найденных узлов
+        public LinkedList foundList(int f){            //возвращает список из найденных узлов
             LinkedList s = new LinkedList();
             Node tmp = head;
             while(tmp!=null){
                 if(tmp.data == f){
-                    s.add_last(f);
+                    s.addLast(f);
                 }
                 tmp = tmp.next;
             }
             return s;
         }                   //tested
-        public void clean(){
-            head = null;
-        }                       //tested
-        public void remove_first_by_key(int a){
+        public void clean(){ head = null; }                       //tested
+        public void removeFirstByKey(int a){
             Node tmp = head;
             while(tmp.next != null){
                 if(tmp.next.data == a){
@@ -133,16 +129,16 @@ public class Main {
         public static void main(String[] args) {
             LinkedList llist = new LinkedList();
             for(int i = 0; i<=10; i++){
-                llist.add_last(i);
+                llist.addLast(i);
             }
-            Test.test_remove();
-            Test.test_Sum();
-            Test.test_clean();
-            Test.test_Size();
-            Test.test_Found();
-            Test.test_Insert();
-            Test.test_remove_one();
-            Test.test_add();
+            Test.testRemove();
+            Test.testSum();
+            Test.testClean();
+            Test.testSize();
+            Test.testFound();
+            Test.testInsert();
+            Test.testRemoveOne();
+            Test.testAdd();
         }
     }
 }
