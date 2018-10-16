@@ -18,24 +18,24 @@ public class Main {
     {
         Node head;
         Node tail;
+        int size;
 
         public void add_first(int new_data) {
-            Node new_node = new Node(new_data, head);
-            new_node.next = head;
-            head = new_node;
+            head = new Node(new_data, head);
+            //size++;
         }                  //tested
-
         public void add_last(int new_data){         //функция добавляет в конец списка
             if(head == null){
                 add_first(new_data);
             }
             else{
-                Node tmp = head;
+                /*Node tmp = head;
                 while(tmp.next!= null){
                     tmp = tmp.next;
-                }
-                tmp.next = new Node(new_data, null);
-                tail = tmp.next;
+                }*/
+                Node tmp = new Node(new_data, null);
+                tail.next = tmp;
+                tail = tail.next;
             }
         }                    //tested
         public int getCount(){
