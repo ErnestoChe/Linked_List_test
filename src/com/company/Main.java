@@ -73,6 +73,9 @@ public class Main {
             }
         }                    //tested
         public void insertAfter(int k, int ins){
+            if(tail.data == k){
+                addLast(ins);
+            }
             Node tmp = head;
             while((tmp != null) && (tmp.data != k)){
                 tmp = tmp.next;
