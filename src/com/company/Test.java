@@ -96,12 +96,20 @@ public class Test {
         }
         int h1 = f.head.data;
         int t1 = f.tail.data;
-        f.insertAfter(n, 3);
+        int s1 = f.getCount();
+        f.insertAfter(n, 30);
         int h2 = f.head.data;
         int t2 = f.tail.data;
-        if((h1 == h2) && (t1 == t2)){
+        int s2 = f.getCount();
+        if((h1 == h2) && (t1 == t2) && (s1+1 == s2)){
             System.out.println("insert test passed");
         }else System.out.println("insert test failed");
+        f.insertAfter(4, 20);
+        int t3 = f.tail.data;
+        int s3 = f.getCount();
+        if((t3 != t2) && (s2+1 == s3)){
+            System.out.println("insert in tail test passed");
+        }else System.out.println("insert in tail test failed");
         System.out.println();
     }
     public static void testRemoveOne(){

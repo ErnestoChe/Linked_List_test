@@ -75,13 +75,16 @@ public class Main {
         public void insertAfter(int k, int ins){
             if(tail.data == k){
                 addLast(ins);
-            }
-            Node tmp = head;
-            while((tmp != null) && (tmp.data != k)){
-                tmp = tmp.next;
-            }
-            if(tmp != null){
-                tmp.next = new Node(ins, tmp.next);
+            }else{
+                Node tmp = head;
+                while((tmp != null) && (tmp.data != k)){
+                    tmp = tmp.next;
+                }
+                if(tmp != null){
+                   Node n = new Node(ins, tmp.next);
+                   n.next = tmp.next;
+                   tmp.next = n;
+                }
             }
         }               //tested
         public int get(int q){
@@ -144,12 +147,6 @@ public class Main {
             for(int i = 0; i<=10; i++){
                 llist.addLast(i);
             }
-            llist.removeByValue(10);
-            llist.log();
-            System.out.println(llist.tail.data);
-            llist.removeFirstByKey(9);
-            llist.log();
-            System.out.println(llist.tail.data);
             Test.testRemove();
             Test.testSum();
             Test.testClean();
